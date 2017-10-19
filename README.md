@@ -12,3 +12,4 @@ Usage:
     findfiles [-i] [-d] pattern1 [pattern2...]
 
 * `-i` to ignore case
+* `-d` find duplicates
