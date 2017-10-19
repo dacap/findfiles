@@ -23,6 +23,8 @@ func (p *Patterns) append(pat string) {
 }
 
 func (p *Patterns) match(line string) int {
+	if len(p.patterns) == 0 { return 0 }
+
 	firstIndex := -1
 	matches := 0
 	for _, re := range p.patterns {
