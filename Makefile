@@ -1,11 +1,13 @@
-# Copyright (C) 2017 David Capello
+# Copyright (C) 2017-2026 David Capello
 
 all:
 	go build -o findfiles *.go
 
 package:
 	env GOOS=darwin GOARCH=amd64 go build -v -o bin/findfiles *.go
-	cd bin && zip findfiles-macosx.zip findfiles && rm findfiles && cd ..
+	cd bin && zip findfiles-macosx-x64.zip findfiles && rm findfiles && cd ..
+	env GOOS=darwin GOARCH=arm64 go build -v -o bin/findfiles *.go
+	cd bin && zip findfiles-macosx-arm64.zip findfiles && rm findfiles && cd ..
 	env GOOS=windows GOARCH=amd64 go build -v -o bin/findfiles.exe *.go
 	cd bin && zip findfiles-windows.zip findfiles.exe && rm findfiles.exe && cd ..
 	env GOOS=linux GOARCH=amd64 go build -v -o bin/findfiles *.go
